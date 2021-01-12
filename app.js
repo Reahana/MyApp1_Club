@@ -12,7 +12,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
 app.get('/',(res,req)=>{
-    res.json({mesage: 'welcome'})
+    
 })
 
 const PORT = process.env.PORT || 4040
