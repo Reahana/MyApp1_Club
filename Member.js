@@ -1,4 +1,4 @@
-const {Schema, model}= require('momgoose')
+const {Schema, model}= require('mongoose')
 
 const memberSchema = new Schema({
     name: {
@@ -13,7 +13,7 @@ const memberSchema = new Schema({
         trim: true
     },
     birthday:{
-        type: Date
+        type: String
     },
     email:{
         type: String,

@@ -3,16 +3,21 @@ const morgan=  require('morgan')
 const mongoose= require('mongoose')
 
 const router= require('./Routes')
+
 const app =express()
 
-app.set('view engine','ejs')
+//app.set('view engine','ejs')
 
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
+app.use('/members',router)
+
 app.get('/',(res,req)=>{
-    
+    res.json({
+        messege:"Something"
+    })
 })
 
 const PORT = process.env.PORT || 4040
