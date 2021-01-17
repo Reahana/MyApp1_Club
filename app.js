@@ -15,9 +15,9 @@ app.use(express.json())
 app.use('/members',router)
 
 app.get('/',(req,res)=>{
-    //  res.json({
-    //      messege:"Something"
-    //  })
+      res.json({
+          messege:"Something"
+     })
 })
 
 const PORT = process.env.PORT || 4040
