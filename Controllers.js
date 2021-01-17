@@ -26,7 +26,7 @@ exports.getOneMember =(req,res)=>{
         })
 }
 exports.addMember =(req,res)=>{
-    let { name,position, birthday, id} = req.body
+    let { name,position, birthday, email,phone,id} = req.body
 
     let error = {}
     if (!name) {
@@ -38,12 +38,13 @@ exports.addMember =(req,res)=>{
     if (!birthday) {
         error.birthday = 'Please Provide A Birthday'
     }
-    // if (!phone) {
-    //     error.phone = 'Please Provide A Phone Number'
-    // }
-    // if (!email) {
-    //     error.email = 'Please Provide An Email'
-    // }
+    if (!email) {
+        error.email = 'Please Provide An Email'
+   }
+     if (!phone) {
+         error.phone = 'Please Provide A Phone Number'
+     }
+     
 
     let isError = Object.keys(error).length > 0
 
@@ -67,7 +68,9 @@ exports.addMember =(req,res)=>{
                 $set: {
                     name,
                     position,
-                    birthday
+                    birthday,
+                    email,
+                    phone
                     
                 }
             }
@@ -89,7 +92,9 @@ exports.addMember =(req,res)=>{
         let member = new Member({
             name,
             position,
-            birthday
+            birthday,
+            email,
+            phone
             
         })
      
@@ -113,7 +118,7 @@ exports.addMember =(req,res)=>{
 
 }
 exports.editMember =(req,res)=>{
-    let { name,position, birthday } = req.body
+    let { name,position, birthday,email,phone } = req.body
     let { id } = req.params
     Contact.findOneAndUpdate(
         { _id: id },
@@ -121,7 +126,9 @@ exports.editMember =(req,res)=>{
             $set: {
             name,
             position,
-            birthday
+            birthday,
+            email,
+             phone
            
             }
         },
