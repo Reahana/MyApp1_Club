@@ -42,21 +42,6 @@
                     </div>
                 </div>
 
-                <div class="form-group mr-3">
-                    <input type="text" name="email" placeholder="Email"
-                        class="form-control <%= error.email ? 'is-invalid': ''  %> ">
-                    <div class="invalid-feedback">
-                        <%= error.email %>
-                    </div>
-                </div>
-
-                <div class="form-group mr-3">
-                    <input type="text" name="phone" placeholder="Phone"
-                        class="form-control  <%= error.phone ? 'is-invalid': ''  %>">
-                    <div class="invalid-feedback">
-                        <%= error.phone %>
-                    </div>
-                </div>
 
                 <div class="form-group mr-3">
                     <input type="hidden" name="id">
@@ -72,8 +57,6 @@
                         <th scope="col">Name</th>
                         <th scope="col">Position</th>
                         <th scope="col">Birthday</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -89,17 +72,11 @@
                             <td>
                                 <%= member.birthday %>
                             </td>
-                            <td>
-                                <%= member.email %>
-                            </td>
-                            <td>
-                                <%= member.phone %>
-                            </td>
+                    
 
                             <td>
                                 <button class="btn btn-warning btn-sm edit-btn" data-name="<%= member.name  %> "
                                     data-position="<%= member.position  %>" data-birthday="<%= member.birthday  %>"
-                                    data-email="<%= member.email  %>" data-phone="<%= member.phone  %>"
                                     data-id="<%= member._id  %>">
                                     Edit
                                 </button>
@@ -133,13 +110,11 @@
             let form = document.getElementById('my-form')
                 ;[...editBtn].forEach(btn => {
                     btn.addEventListener('click', function (e) {
-                        let { name, position, birthday,email,phone, id } = e.target.dataset
+                        let { name, position, birthday, id } = e.target.dataset
                         form[0].value = name
                         form[1].value = position
                         form[2].value = birthday
-                        form[3].value = email
-                        form[4].value = phone
-                        form[5].value = id
+                        form[3].value = id
                         form[6].value = 'Update'
 
                     })
