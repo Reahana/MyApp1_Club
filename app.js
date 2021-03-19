@@ -15,15 +15,14 @@ app.use(express.json())
 app.use('/members',router)
 
 app.get('/',(req,res)=>{
-      res.json({
-          messege:"Something"
-     })
+      res.render('home')
 })
 
 const PORT = process.env.PORT || 4040
 mongoose.connect(`mongodb+srv://Reahana:nodeDB10@my-cluster.vdjli.mongodb.net/testDB?retryWrites=true&w=majority`,
 {useNewUrlParser: true})
 .then(()=>{
+    console.log('Database Connected')
     app.listen(PORT,()=>{
         console.log(`Server is working on PORT ${PORT}`)
     })
