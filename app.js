@@ -18,6 +18,7 @@ app.get('/',(req,res)=>{
       res.render('home')
 })
 
+
 const PORT = process.env.PORT || 4040
 mongoose.connect(`mongodb+srv://${process.env.DB_ADMIN}:${process.env.DB_PASSWORD}@my-cluster.vdjli.mongodb.net/testDB?retryWrites=true&w=majority`,
 {useNewUrlParser: true})
