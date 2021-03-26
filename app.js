@@ -1,6 +1,8 @@
+
 const express =require('express')
 const morgan=  require('morgan')
 const mongoose= require('mongoose')
+
 
 const router= require('./Routes')
 
@@ -20,8 +22,10 @@ app.get('/',(req,res)=>{
 
 
 const PORT = process.env.PORT || 4040
-mongoose.connect(`mongodb+srv://${process.env.DB_ADMIN}:${process.env.DB_PASSWORD}@my-cluster.vdjli.mongodb.net/testDB?retryWrites=true&w=majority`,
-{useNewUrlParser: true})
+
+mongoose.connect(`mongodb+srv://Reahana:nodeDB10@my-cluster.vdjli.mongodb.net/testDB?retryWrites=true&w=majority`,
+{useNewUrlParser: true, useUnifiedTopology: true}) 
+
 .then(()=>{
     console.log('Database Connected')
     app.listen(PORT,()=>{
